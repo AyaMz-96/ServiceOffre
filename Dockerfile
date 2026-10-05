@@ -1,12 +1,10 @@
 FROM eclipse-temurin:17-jdk-alpine
 
-# تثبيت Maven
 RUN apk add --no-mode maven || apk add maven
 
 WORKDIR /app
 COPY . .
 
-# بناء المشروع
 RUN mvn package -DskipTests
 
 EXPOSE 8080
